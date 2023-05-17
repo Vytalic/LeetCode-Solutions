@@ -1,0 +1,22 @@
+# Given an integer x, return true if x is a palindrome, and false otherwise.
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        backwards = str(x)[::-1]
+        if '-' in backwards:
+            return False
+        return int(backwards) == x
+        
+# Begin test code
+my_solution = Solution()
+a = 102
+b = 4884
+c = 2332332
+d = -101
+e = 101
+
+my_list = [a, b, c, d, e]
+
+for item in range(0, len(my_list)):
+    print(my_solution.isPalindrome(my_list[item]))
+# End test code
