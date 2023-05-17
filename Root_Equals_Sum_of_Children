@@ -27,3 +27,13 @@ class Solution:
 # my_solution = Solution()
 # print(my_solution.checkTree(root))
 # End Test
+
+
+# Notes
+# Adding a check for empty root increases speed. (see Below)
+# class Solution:
+#     def checkTree(self, root: Optional[TreeNode]) -> bool:
+#         if root != None:
+#             return (root.val == root.left.val + root.right.val)
+#         else:
+#             return False
