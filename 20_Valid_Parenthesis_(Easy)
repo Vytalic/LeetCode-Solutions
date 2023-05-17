@@ -1,0 +1,65 @@
+# Not yet Solved in 40 minutes on 5/17/2023.
+
+"""
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+
+    Open brackets must be closed by the same type of brackets.
+    Open brackets must be closed in the correct order.
+    Every close bracket has a corresponding open bracket of the same type.
+"""
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:      
+        opened = 0
+        open = ['(', '{', '[']      # 0 = parenthesis, 1 = curly, 2 = bracket
+        close = [')', '}', ']']     # 0 = parenthesis, 1 = curly, 2 = bracket
+        
+        open0 = 0
+        open1 = 0
+        open2 = 0
+        
+        close0 = 0
+        close1 = 0
+        close2 = 0
+        
+        item = 0
+        iteration = 1
+        container = s[iteration]
+        if len(s) % 2 != 0:
+            print("here 0")
+            return False
+        for letter in s:
+            if letter in close and item == -1:  # if first iteration and it's a closing item, return false
+                 print("here 1")
+                 return False
+            elif letter == open[0]:             # upon consecutive iterations, check which item it is
+                item = 0
+                open0 += 1
+            elif letter == open[1]:
+                item = 1
+                open1 += 1
+            elif letter == open[2]:
+                item = 2
+                open2 += 1
+            elif letter == close[0]:
+                close0 += 1
+            elif letter == close[1]:
+                close1 += 1
+            elif letter == close[2]:
+                close2 += 1
+            else:
+                pass
+        if open0 != close0 or open1 != close1 or open2 != close2:
+            print("here 2")
+            return False
+        else:
+            print(s)
+            print(s[::-1])
+            
+# Begin Test
+my_solution = Solution()
+my_string = "[(])"
+print(my_solution.isValid(my_string))
+# End Test
