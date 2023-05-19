@@ -1,0 +1,10 @@
+# Completed in 5 mins on 5/18/2023
+from typing import List
+
+class Solution:
+    def buildArray(self, nums: List[int]) -> List[int]:
+        my_array = []
+        for numbers in range(0, len(nums)):
+            print(numbers)
+            my_array.append(nums[nums[numbers]])
+        return my_array
