@@ -1,0 +1,15 @@
+# Completed in 8 mins. 5/18/2023
+"""
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+"""
+
+from typing import Counter
+
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        a_dict = Counter(nums)
+        for item in a_dict:
+            if a_dict.get(item) < 2:
+                return item
