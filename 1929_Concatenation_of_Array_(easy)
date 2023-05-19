@@ -1,0 +1,6 @@
+# Completed in 5 mins on 5/18/2023
+
+
+class Solution:
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        return nums + nums
