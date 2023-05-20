@@ -1,0 +1,42 @@
+# Completed in 10 mins. 5/18/2023
+# Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
+
+
+from typing import List
+
+
+
+
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        nums.sort(reverse=True)
+        print(nums)
+        max = nums[0]
+        possibility1 = nums[0] * nums[1] * nums[2]
+        
+        nums.sort()
+        print(nums)
+        possibility2 = nums[0] * nums[1] * max
+        
+        if possibility1 > possibility2:
+            return possibility1
+        else:
+            return possibility2
+    
+
+# Begin Test
+my_array = [-100, -98, -1, 2, 3, 4]
+my_solution = Solution()
+print(my_solution.maximumProduct(my_array))
+# End Test
+
+
+
+
+# Better Runtime (below)
+# class Solution:
+#     def maximumProduct(self, nums: List[int]) -> int:
+#         nums.sort(reverse=True)
+#         print(nums[0])
+#         return max(nums[0]*nums[-1]*nums[-2], nums[0]*nums[1]*nums[2])
+
