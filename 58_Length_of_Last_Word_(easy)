@@ -16,7 +16,8 @@ class Solution:
         return len(s.split(' ')[words])
         
 
-
+# Begin Test
 my_string = "       hi there, what is this?"
 my_solution = Solution()
 print(my_solution.lengthOfLastWord(my_string))
+# End Test
