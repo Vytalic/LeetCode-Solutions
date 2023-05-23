@@ -1,0 +1,36 @@
+"""
+Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+"""
+
+from typing import List
+
+
+
+
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        left = 0
+        for right in range(len(nums)):
+            
+            # Always subtract 1 and add the value of nums[right]
+            # if nums[right] is a 1, k does not change
+            k -= 1 - nums[right]
+            
+            # When we go beyond our k-limit of 0's
+            if k < 0:
+                # always add 1 and subtract the value of nums[left]
+                # if nums[left] is a 1, k does not change
+                k += 1 - nums[left]
+                # Also we add 1 to left to modify our window
+                left += 1
+        
+        # Now, return the size of the window.
+        return right - left + 1
+        
+
+# Begin Test
+k = 2
+num_list = [1, 1, 1, 0, 0, 1, 0, 0, 0, 1]
+my_solution = Solution()
+print(my_solution.longestOnes(num_list, k))
+# End Test
