@@ -1,0 +1,26 @@
+# Solved in 4 mins on May 23, 2022
+"""
+Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+"""
+
+from typing import List
+
+
+
+
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        for item in range(0, len(nums)):
+            nums[item] *= nums[item]
+        nums.sort()
+        return nums
+
+
+# Begin test
+list_nums = [1, 2, 4, 2, 1, 6, 7, 4]
+my_solution = Solution()
+my_solution.sortedSquares(list_nums)
+# End test
+
+# Notes
+# Sorting before squaring will result in the the square of negative numbers appearing first, even though they're larger.
