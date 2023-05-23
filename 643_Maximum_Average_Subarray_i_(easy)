@@ -13,7 +13,7 @@ from typing import List
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
-        
+
         # Base Case - When list has 1 item
         if len(nums) <= 1:
             return nums[0]/k
@@ -45,3 +45,13 @@ k = 4
 my_solution = Solution()
 print(my_solution.findMaxAverage(num_list, k))
 # End Test
+
+# Notes (a faster approach below)
+# class Solution:
+#     def findMaxAverage(self, nums: List[int], k: int) -> float:
+#         best = now = sum(nums[:k])
+#         for i in range(k, len(nums)):
+#             now += nums[i] - nums[i-k]
+#             if now > best:
+#                 best = now
+#         return best/k
