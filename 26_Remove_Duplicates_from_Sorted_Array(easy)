@@ -1,0 +1,39 @@
+# Completed in 39 mins. 5/22/2023
+"""
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially.
+The remaining elements of nums are not important as well as the size of nums.
+Return k.
+
+"""
+
+from typing import List
+
+
+
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        expected_nums = set(nums)
+        nums.clear()
+        for item in expected_nums:
+            nums.append(item)
+        nums.sort()
+        return len(nums)
+   
+   
+# Begin Test
+my_nums = [0,0,1,1,1,2,2,3,3,4]  
+my_solution = Solution()
+print(my_solution.removeDuplicates(my_nums))
+# End Test
+
+
+# Notes
+"""
+Realizing that the problem wanted me to correctly modify the original list and then only return the length of the list, confused me.
+I will work more on understanding the problem before diving
+"""
